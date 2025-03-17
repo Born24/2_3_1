@@ -15,8 +15,7 @@ public class UserDaoImpl implements UserDao {
     private EntityManager entityManager;
 
 
-    public UserDaoImpl() {
-    }
+    public UserDaoImpl() {}
 
     @Override
     public List<User> findAll() {
