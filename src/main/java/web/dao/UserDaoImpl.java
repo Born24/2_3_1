@@ -41,8 +41,17 @@ public class UserDaoImpl implements UserDao {
     @Transactional
     public void delete(Long id) {
         User user = entityManager.find(User.class, id);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found with id: " + id);
+        }
         entityManager.remove(user);
 
+    }
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        entityManager.merge(user);
     }
 
 }
